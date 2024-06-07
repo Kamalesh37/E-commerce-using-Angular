@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    background-color: rgb(105, 143, 223);
+    margin-left: -22px;
+}
+.main1{
+    justify-content: space-between;
+    margin-top: 10px;
+
+}
+.main2{
+    margin-left: 665px;
+    animation: sn 2s ease-in-out;
+    position: absolute;
+    z-index: 1;
+}
+@keyframes sn{
+    0%{
+        transform: translateX(-50%);
+        
+    }
+    100%{
+        transform: translateX(-360%);
+    }
+}
+p{
+    position: absolute;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: -110px;
+    margin-left: 300px;
+    font-size: 35px;
+}

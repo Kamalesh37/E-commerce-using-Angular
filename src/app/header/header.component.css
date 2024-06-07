@@ -1,0 +1,51 @@
+nav{
+  position: absolute;
+  padding-left: 300px;
+  padding-top: 40px;
+  top: 0;
+  overflow: hidden;
+}
+nav ul a{
+  padding:0px 50px 0px 35px;
+  text-decoration: none;
+  font-size: 16px;
+  list-style: none;
+  color: rgba(0, 0, 0, 0.967);
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.topnav{
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 25, 0, 0.659);
+  height: 110px;
+  padding-left: 500px;
+  overflow: hidden;
+  animation: content 1s ease-in-out;
+}
+@keyframes content{
+  0%{
+    transform: translatey(-100%);
+  }
+
+}
+
+nav ul a:hover{
+  color: rgb(21, 112, 192);
+  opacity: 1.0;
+  font-size: 20px;
+}
+.logo img{
+  height: 75px;
+  width: 150px;
+  float: left;
+  margin-left: -500px;
+  align-items: center;
+}
+.logo{
+  padding-top: 10px;
+}
+.statement{
+  padding: 12px 0px 0px 0px;
+  text-transform: uppercase;
+}

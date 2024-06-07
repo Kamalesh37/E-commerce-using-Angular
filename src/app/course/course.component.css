@@ -1,0 +1,12 @@
+.customMargin{ 
+    color: rgb(19, 19, 19); 
+} 
+.cr{ 
+    background-image: url(/assets/building\ 1.1.webp); 
+    background-size: cover; 
+    margin-bottom: 50px; 
+    margin-top: 70px; 
+} 
+.crr{ 
+    margin-bottom: 50px; 
+}
