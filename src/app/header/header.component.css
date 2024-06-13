@@ -1,12 +1,35 @@
-nav{
-  position: absolute;
-  padding-left: 300px;
-  padding-top: 40px;
-  top: 0;
+*{
+  padding: 0%;
+  margin: 0;
+  
+}
+
+.topnav {
+  margin-top: 1px;
+  background-color: rgba(0, 158, 158, 0.53);
+  position: sticky;
+  height: 60px;
+  z-index: 3;
   overflow: hidden;
 }
-nav ul a{
-  padding:0px 50px 0px 35px;
+
+::ng-deep.topnav {
+  position: sticky;
+  top: 0;
+}
+
+.nav1{
+  z-index: 0;
+  margin-inline-start: 15%;
+  top: 20px;
+  display: block;
+  position: absolute;
+  inset-inline-start: 34%;
+  inline-size: 60%;
+
+}
+.nav1 ul a{
+  padding: 20px 0px 40px 40px;
   text-decoration: none;
   font-size: 16px;
   list-style: none;
@@ -14,38 +37,25 @@ nav ul a{
   text-transform: uppercase;
   opacity: 0.7;
 }
-.topnav{
-  position: sticky;
-  top: 0;
-  background-color: rgba(255, 25, 0, 0.659);
-  height: 110px;
-  padding-left: 500px;
-  overflow: hidden;
-  animation: content 1s ease-in-out;
-}
-@keyframes content{
-  0%{
-    transform: translatey(-100%);
-  }
 
-}
-
-nav ul a:hover{
+.nav1 ul a:hover{
   color: rgb(21, 112, 192);
   opacity: 1.0;
-  font-size: 20px;
 }
 .logo img{
-  height: 75px;
-  width: 150px;
+  height: 50px;
+  width: 170px;
   float: left;
-  margin-left: -500px;
-  align-items: center;
 }
 .logo{
+  width: 2%;
   padding-top: 10px;
 }
 .statement{
-  padding: 12px 0px 0px 0px;
+  top: 12px;
+  display: inline-block;
+  margin-inline-start: 6%;
+  inline-size: 30%;
+  padding: 12px;
   text-transform: uppercase;
 }

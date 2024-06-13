@@ -5,8 +5,7 @@ video{
 
 }
 *{
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px;
 }
 p{
     font-size: 16px;
