@@ -4,6 +4,15 @@
   
 }
 
+.nav-inner {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .topnav {
   margin-top: 1px;
   background-color: rgba(0, 158, 158, 0.53);
@@ -11,6 +20,7 @@
   height: 60px;
   z-index: 3;
   overflow: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
 ::ng-deep.topnav {
@@ -18,16 +28,6 @@
   top: 0;
 }
 
-.nav1{
-  z-index: 0;
-  margin-inline-start: 15%;
-  top: 20px;
-  display: block;
-  position: absolute;
-  inset-inline-start: 34%;
-  inline-size: 60%;
-
-}
 .nav1 ul a{
   padding: 20px 0px 40px 40px;
   text-decoration: none;
@@ -42,20 +42,18 @@
   color: rgb(21, 112, 192);
   opacity: 1.0;
 }
+
 .logo img{
   height: 50px;
   width: 170px;
-  float: left;
 }
+
 .logo{
-  width: 2%;
   padding-top: 10px;
 }
+
 .statement{
   top: 12px;
-  display: inline-block;
-  margin-inline-start: 6%;
-  inline-size: 30%;
   padding: 12px;
   text-transform: uppercase;
 }
