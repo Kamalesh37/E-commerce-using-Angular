@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +19,7 @@ import { ServiceComponent } from './service/service.component';
 import { BranchComponent } from './branch/branch.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { TelevisionComponent } from './television/television.component';
-import { Router, RouterModule, ROUTES } from '@angular/router';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +40,12 @@ import { Router, RouterModule, ROUTES } from '@angular/router';
     BranchComponent,
     ContactusComponent,
     TelevisionComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

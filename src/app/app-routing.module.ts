@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { ServiceComponent } from './service/service.component';
 import { SignComponent } from './sign/sign.component';
 import { TelevisionComponent } from './television/television.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+
 const routes: Routes = [
   {path: "Home", component:HomeComponent},
   {path:"About",component:AboutComponent},
@@ -24,6 +26,7 @@ const routes: Routes = [
   {path:"branch",component:BranchComponent},
   {path:"contactus",component:ContactusComponent},
   {path:"Tele",component:TelevisionComponent},
+  {path:"checkout",component:CheckoutComponent},
 ];
 
 @NgModule({

@@ -1,3 +1,85 @@
-img{
-    background-size: contain;
+.gallery-container {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.gallery-header p {
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.button-group {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.grid-btn {
+  background: var(--logo-bg);
+  border: 1px solid var(--border-strong);
+  color: var(--text-secondary);
+  padding: 0.6rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.grid-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.grid-btn.active {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  color: var(--text-primary);
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -8px;
+}
+
+.column {
+  padding: 0 8px;
+  transition: flex 0.4s ease, max-width 0.4s ease;
+}
+
+.column img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.column img:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }

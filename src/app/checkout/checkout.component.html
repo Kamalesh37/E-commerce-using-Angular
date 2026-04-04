@@ -1,0 +1,105 @@
+<div class="checkout-wrapper">
+  
+  <div class="checkout-success" *ngIf="paymentSuccess">
+    <div class="success-card">
+      <div class="icon-circle">
+        <i class="fas fa-check"></i>
+      </div>
+      <h2>Payment Successful!</h2>
+      <p>Your order has been processed securely.</p>
+      <button class="back-btn" routerLink="/Product">Continue Shopping</button>
+    </div>
+  </div>
+
+  <div class="checkout-layout" *ngIf="!paymentSuccess">
+    <!-- Left Column: Cart Summary (Zepto Style) -->
+    <div class="cart-summary glass-panel">
+      <h2>Your Cart</h2>
+      <p class="subtitle">{{ cartItems.length }} {{ cartItems.length === 1 ? 'Item' : 'Items' }} in your cart</p>
+      
+      <div class="empty-cart" *ngIf="cartItems.length === 0">
+        <div class="empty-icon-wrap">
+          <i class="fas fa-shopping-bag"></i>
+        </div>
+        <h3>Your cart is empty</h3>
+        <p>Looks like you haven't added anything yet.</p>
+        <button class="btn btn-primary" routerLink="/Product">Browse Products</button>
+      </div>
+
+      <div class="cart-list" *ngIf="cartItems.length > 0">
+        <div class="zepto-cart-item" *ngFor="let item of cartItems">
+          <div class="zepto-item-image">
+            <img [src]="item.image || '/assets/placeholder.jpg'" [alt]="item.name">
+          </div>
+          
+          <div class="zepto-item-info">
+            <h4>{{item.name}}</h4>
+            <span class="z-price">₹{{item.price | number:'1.0-0'}}</span>
+          </div>
+
+          <div class="zepto-qty-pill">
+            <button class="pill-btn minus" (click)="cartService.updateQuantity(item.id, -1)">
+              <i class="fas" [ngClass]="item.quantity === 1 ? 'fa-trash' : 'fa-minus'"></i>
+            </button>
+            <span class="pill-count">{{item.quantity}}</span>
+            <button class="pill-btn plus" (click)="cartService.updateQuantity(item.id, 1)">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Bill Summary -->
+        <div class="bill-summary">
+          <h3>Bill Details</h3>
+          <div class="bill-row">
+            <span>Item Total</span>
+            <span>₹{{totalPrice | number:'1.0-0'}}</span>
+          </div>
+          <div class="bill-row">
+            <span>Delivery Fee</span>
+            <span class="free">FREE</span>
+          </div>
+          <div class="bill-row grand-total">
+            <span>Grand Total</span>
+            <span>₹{{totalPrice | number:'1.0-0'}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Mock Payment -->
+    <div class="payment-gateway glass-panel" *ngIf="cartItems.length > 0">
+      <h2>Payment Verification</h2>
+      <p class="subtitle">Mock checkout - no real money will be charged.</p>
+
+      <form class="payment-form" (submit)="processPayment($event)">
+        <div class="form-group">
+          <label>Name on Card</label>
+          <input type="text" placeholder="John Doe" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Card Number</label>
+          <input type="text" placeholder="xxxx xxxx xxxx xxxx" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group half">
+            <label>Expiry Date</label>
+            <input type="text" placeholder="MM/YY" required>
+          </div>
+          <div class="form-group half">
+            <label>CVV</label>
+            <input type="text" placeholder="123" required>
+          </div>
+        </div>
+
+        <button type="submit" class="pay-btn" [disabled]="isProcessing">
+          <span *ngIf="!isProcessing"><i class="fas fa-lock"></i> Pay ₹{{totalPrice | number:'1.0-0'}}</span>
+          <span *ngIf="isProcessing"><i class="fas fa-circle-notch fa-spin"></i> Processing...</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+</div>

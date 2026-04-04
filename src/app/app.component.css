@@ -1,0 +1,60 @@
+.app-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  width: 100%;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.app-sidebar-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 1rem;
+  z-index: 100;
+  display: block; /* Required for custom element tags */
+}
+
+/* Make sure the modern-sidebar fills the wrapper properly */
+::ng-deep .modern-sidebar {
+  height: 100%;
+  margin-top: 0 !important;
+}
+
+.app-main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 0; /* Prevents flex children from overflowing the grid column */
+}
+
+.app-header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.app-promo-wrapper {
+  display: block;
+}
+
+.app-router-area {
+  flex-grow: 1; /* Pushes the footer to the bottom */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-sidebar-wrapper {
+    display: none; /* Hide sidebar by default on mobile. Assume a hamburger menu will toggle an off-canvas sidebar if needed, or user navigates via header. */
+  }
+  
+  .app-router-area {
+    padding: 1rem;
+  }
+}

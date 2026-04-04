@@ -1,36 +1,62 @@
-*{
-    margin: 0;
-    padding: 0;
+.promo-banner {
+  position: relative;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-light);
 }
-.main{
-    background-color: rgb(105, 143, 223);
-    margin-left: -22px;
-}
-.main1{
-    justify-content: space-between;
-    margin-top: 10px;
 
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 2;
 }
-.main2{
-    margin-left: 665px;
-    animation: sn 2s ease-in-out;
-    position: absolute;
-    z-index: 1;
+
+.promo-logo {
+  height: 45px;
+  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
 }
-@keyframes sn{
-    0%{
-        transform: translateX(-50%);
-        
-    }
-    100%{
-        transform: translateX(-360%);
-    }
+
+.promo-text h2 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: 0.5px;
 }
-p{
-    position: absolute;
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: -110px;
-    margin-left: 300px;
-    font-size: 35px;
+
+.promo-text p {
+  margin: 0.5rem 0 0 0;
+  color: #000000;
+  font-size: 1.1rem;
+}
+
+.animation-wrapper {
+  position: absolute;
+  bottom: 10px;
+  right: -250px; 
+  z-index: 1;
+  opacity: 0.8;
+  animation: driveThrough 12s linear infinite;
+}
+
+.truck-anim {
+  height: 120px;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+}
+
+@keyframes driveThrough {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(-1500px); 
+  }
 }

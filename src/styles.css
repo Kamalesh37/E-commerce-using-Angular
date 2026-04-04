@@ -1,2 +1,61 @@
-@import "./bootstrap.css";
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+  /* Light Theme Variables (Default) */
+  --bg-primary: #f1f5f9;
+  --text-primary: #020617;
+  --text-secondary: #334155;
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --hover-glass: rgba(241, 245, 249, 0.8);
+  --input-bg: rgba(255, 255, 255, 0.5);
+  
+  --border-light: rgba(0, 0, 0, 0.05);
+  --border-strong: rgba(0, 0, 0, 0.1);
+  
+  --logo-bg: rgba(0, 0, 0, 0.03);
+  --logo-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  --logo-radius: 8px; 
+
+  /* Dynamic Accents */
+  --accent-text: #2563eb;
+  --gradient-start: #3b82f6; 
+  --gradient-end: #4f46e5;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Variables */
+  --bg-primary: #0f172a;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --hover-glass: rgba(30, 41, 59, 0.8);
+  --input-bg: rgba(2, 6, 23, 0.5);
+  
+  --border-light: rgba(255, 255, 255, 0.05);
+  --border-strong: rgba(255, 255, 255, 0.1);
+  
+  --logo-bg: transparent;
+  --logo-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  --logo-radius: 50%;
+
+  /* Dynamic Accents */
+  --accent-text: #38bdf8; 
+  --gradient-start: #38bdf8;
+  --gradient-end: #818cf8; 
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
