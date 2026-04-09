@@ -1,0 +1,5 @@
+[33m28295d5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/backend[m[33m, [m[1;32mbackend[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m01011f3[m HEAD@{1}: commit (merge): resolved merge
+[33m28295d5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/backend[m[33m, [m[1;32mbackend[m[33m)[m HEAD@{2}: checkout: moving from backend to main
+[33m28295d5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/backend[m[33m, [m[1;32mbackend[m[33m)[m HEAD@{3}: commit: mapped frontend using laravel
+[33m9f1ffe6[m HEAD@{4}: commit (initial): added backend for ecommerce

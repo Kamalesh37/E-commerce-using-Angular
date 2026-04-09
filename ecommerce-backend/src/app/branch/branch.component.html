@@ -1,0 +1,48 @@
+<div class="gallery-container">
+  <div class="gallery-header">
+    <h1 class="gradient-text">Image Gallery</h1>
+    <p>Select grid layout</p>
+    <div class="button-group">
+      <button class="grid-btn" [class.active]="gridFlex === '100%'" (click)="setGrid(1)">1 Block</button>
+      <button class="grid-btn" [class.active]="gridFlex === '50%'" (click)="setGrid(2)">2 Blocks</button>
+      <button class="grid-btn" [class.active]="gridFlex === '25%'" (click)="setGrid(4)">4 Blocks</button>
+    </div>
+  </div>
+
+  <div class="row"> 
+    <div class="column" [style.flex]="gridFlex" [style.max-width]="gridFlex">
+      <img src="/assets/acer predator helios 300.jpg" alt="Gallery item">
+      <img src="/assets/asus.jpg" alt="Gallery item">
+      <img src="/assets/Dell xi.jpg" alt="Gallery item">
+      <img src="/assets/DELL_XPS_15_9510_87YR3.jpg" alt="Gallery item">
+      <img src="/assets/Hp.jpg" alt="Gallery item">
+      <img src="/assets/Lenovo thick book 15.jpg" alt="Gallery item">
+      <img src="/assets/laptop.jpg" alt="Gallery item">
+    </div>
+    <div class="column" [style.flex]="gridFlex" [style.max-width]="gridFlex">
+      <img src="/assets/Apple iphone 13.jpg" alt="Gallery item">
+      <img src="/assets/Oneplus 10 pro.jpg" alt="Gallery item">
+      <img src="/assets/Mortolo gp.jpg" alt="Gallery item">
+      <img src="/assets/Nokia 9.jpg" alt="Gallery item">
+      <img src="/assets/Oppo A74.jpg" alt="Gallery item">
+      <img src="/assets/oppo f15.jpg" alt="Gallery item">
+    </div>  
+    <div class="column" [style.flex]="gridFlex" [style.max-width]="gridFlex">
+      <img src="/assets/Samsung A22.jpg" alt="Gallery item">
+      <img src="/assets/vivo y33 s.jpg" alt="Gallery item">
+      <img src="/assets/Vivo y21.jpg" alt="Gallery item">
+      <img src="/assets/redmi 10 s.jpg" alt="Gallery item">
+      <img src="/assets/mobile.jpg" alt="Gallery item">
+      <img src="/assets/Apple iphone 13.jpg" alt="Gallery item">
+      <img src="/assets/Samsung s22 ultra.jpg" alt="Gallery item">
+    </div>
+    <div class="column" [style.flex]="gridFlex" [style.max-width]="gridFlex">
+      <img src="/assets/skyworth tv.jpg" alt="Gallery item">
+      <img src="/assets/sony tv.jpg" alt="Gallery item">
+      <img src="/assets/tcl Tv.jpg" alt="Gallery item">
+      <img src="/assets/Tv.jpg" alt="Gallery item">
+      <img src="/assets/Mi tv.jpg" alt="Gallery item">
+      <img src="/assets/samsung crystal tv.jpg" alt="Gallery item">
+    </div>
+  </div>
+</div>

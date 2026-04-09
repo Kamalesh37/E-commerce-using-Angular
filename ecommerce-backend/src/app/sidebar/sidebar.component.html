@@ -1,0 +1,49 @@
+<aside class="modern-sidebar">
+  <div class="sidebar-header">
+    <h2 class="logo">E-Store</h2>
+  </div>
+  <nav class="sidebar-nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a routerLink="/Product" class="nav-link">
+          <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+          <span class="link-text">Products</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="service" class="nav-link">
+          <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          <span class="link-text">Services</span>
+          <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="service" class="dropdown-link">Product Design</a></li>
+          <li><a href="service" class="dropdown-link">Layout Design</a></li>
+          <li><a href="service" class="dropdown-link">Manufacturing</a></li>
+          <li><a href="service" class="dropdown-link">Assembling</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="branch" class="nav-link">
+          <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <span class="link-text">Gallery</span>
+        </a>
+      </li>
+      <li class="nav-item" style="margin-top: auto;">
+        <a (click)="toggleTheme()" class="nav-link" style="cursor: pointer;">
+          <svg *ngIf="!isDarkTheme" class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          <svg *ngIf="isDarkTheme" class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <span class="link-text">{{ isDarkTheme ? 'Light Mode' : 'Dark Mode' }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>

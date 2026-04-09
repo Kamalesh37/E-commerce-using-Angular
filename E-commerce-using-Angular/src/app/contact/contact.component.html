@@ -1,0 +1,50 @@
+<div class="products-section">
+  <div class="products-header">
+    <h2 class="gradient-text">Featured Categories</h2>
+    <div class="scroll-controls">
+      <button class="scroll-btn" (click)="scrollLeft()"><i class="fas fa-chevron-left"></i></button>
+      <button class="scroll-btn" (click)="scrollRight()"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <div class="product-container" #scrollContainer> 
+      <div class="product-card">
+          <div class="product-image">
+             <img src="/assets/laptop.jpg" class="product-thumb" alt="Laptops">
+             <div class="overlay">
+               <a class="card-btn" routerLink="/child2">View Collection</a>
+             </div>
+          </div>
+          <div class="product-info">
+              <h3 class="product-brand">Laptops</h3>
+              <p class="product-short-des">High performance machines</p>
+          </div>
+      </div>
+
+      <div class="product-card">
+          <div class="product-image">
+              <img src="/assets/mobile.jpg" class="product-thumb" alt="Mobiles">
+              <div class="overlay">
+               <a class="card-btn" routerLink="/child1">View Collection</a>
+             </div>
+          </div>
+          <div class="product-info">
+              <h3 class="product-brand">Mobiles</h3>
+              <p class="product-short-des">Latest smartphones & tech</p>
+          </div>
+      </div>
+
+      <div class="product-card">
+          <div class="product-image">
+              <img src="/assets/lg smart tv.jpg" class="product-thumb" alt="Television">
+              <div class="overlay">
+                <a class="card-btn" routerLink="/Tele">View Collection</a>
+              </div>
+          </div>
+          <div class="product-info">
+              <h3 class="product-brand">Television</h3>
+              <p class="product-short-des">Crystal clear displays</p>
+          </div>
+      </div>
+  </div>
+</div>

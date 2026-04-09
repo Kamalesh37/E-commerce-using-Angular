@@ -1,0 +1,257 @@
+.amz-detail-page {
+  padding: 2rem;
+  background-color: var(--bg-body);
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  color: var(--text-color);
+  font-family: Arial, sans-serif; /* Amazon uses basic system fonts heavily */
+}
+
+.amz-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr 1.5fr;
+  gap: 2rem;
+  max-width: 1400px;
+  width: 100%;
+}
+
+/* 1. IMAGE SECTION */
+.amz-image-section {
+  position: sticky;
+  top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.amz-main-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  cursor: zoom-in;
+}
+
+/* 2. MIDDLE INFO SECTION */
+.amz-info-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.amz-title {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+  font-weight: 400;
+}
+
+.amz-brand-link {
+  color: #007185;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.amz-brand-link:hover {
+  text-decoration: underline;
+  color: #C45500;
+}
+
+.amz-ratings {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.stars {
+  color: #FFA41C;
+  font-size: 1.2rem;
+}
+
+.half-star {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.rating-number {
+  font-size: 0.9rem;
+}
+
+.review-link {
+  color: #007185;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.review-link:hover { text-decoration: underline; color: #C45500; }
+
+.amz-divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 1rem 0;
+}
+
+.amz-price-block {
+  margin-top: 0.5rem;
+}
+
+.discount-badge {
+  color: #CC0C39;
+  font-size: 1.8rem;
+  font-weight: 300;
+  display: inline-block;
+  margin-right: 1rem;
+  vertical-align: super;
+}
+
+.price-row {
+  display: inline-flex;
+  align-items: flex-start;
+}
+
+.currency-symbol {
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  margin-right: 0.1rem;
+}
+
+.amz-price {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.mrp-row {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.amz-old-price {
+  text-decoration: line-through;
+}
+
+.taxes-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.amz-about-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.amz-bullets {
+  padding-left: 1.2rem;
+}
+
+.amz-bullets li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* 3. RIGHT BUY BOX */
+.amz-buy-box {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.2rem;
+  background-color: var(--bg-card); /* Matches dark/light mode */
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.buy-box-price {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.delivery-info {
+  font-size: 0.9rem;
+  color: #007185;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.in-stock-label {
+  color: #007600;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ships-from {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.quantity-selector {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.quantity-selector select {
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-element);
+  color: var(--text-color);
+}
+
+.buy-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.amz-btn-cart {
+  background-color: #FFD814;
+  color: #0F1111;
+  border-radius: 100px;
+  padding: 0.6rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.amz-btn-cart:hover { background-color: #F7CA00; }
+
+.amz-btn-buy {
+  background-color: #FFA41C;
+  color: #0F1111;
+  border-radius: 100px;
+  padding: 0.6rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.amz-btn-buy:hover { background-color: #FA8900; }
+
+.secure-transaction {
+  font-size: 0.9rem;
+  color: #007185;
+}
+.secure-transaction a {
+  color: #007185;
+  text-decoration: none;
+}
+.secure-transaction a:hover {
+  text-decoration: underline;
+  color: #C45500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .amz-container {
+    grid-template-columns: 1fr;
+  }
+  .amz-image-section {
+    position: static;
+  }
+}

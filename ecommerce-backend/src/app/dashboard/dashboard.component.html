@@ -1,0 +1,103 @@
+<div class="dashboard-page">
+  <div class="dashboard-container">
+    
+    <div class="dashboard-header glass-panel">
+      <div class="user-greeting">
+        <div class="avatar">
+          <i class="fas fa-user"></i>
+        </div>
+        <div>
+          <h2 class="gradient-text">Welcome back, {{ userName }}!</h2>
+          <p>Here is a summary of your recent activity and orders.</p>
+        </div>
+      </div>
+      <button class="btn logout-btn" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+
+    <div class="loading-state" *ngIf="loading">
+      <i class="fas fa-circle-notch fa-spin"></i> Loading your dashboard...
+    </div>
+
+    <div class="alert error" *ngIf="error">
+      {{ error }}
+    </div>
+
+    <div class="orders-section" *ngIf="!loading && !error">
+      <h3>Your Recent Orders <span class="badge">{{ orders.length }}</span></h3>
+      
+      <div class="empty-state glass-panel" *ngIf="orders.length === 0">
+        <div class="empty-icon"><i class="fas fa-box-open"></i></div>
+        <h4>No orders found</h4>
+        <p>You haven't made any purchases yet.</p>
+        <button class="btn btn-primary" routerLink="/">Start Shopping</button>
+      </div>
+
+      <div class="orders-grid" *ngIf="orders.length > 0">
+        <div class="order-card glass-panel" *ngFor="let order of orders">
+          
+          <div class="order-header">
+            <div class="order-id">
+              <span class="label">Order ID</span>
+              <strong>#{{ order.id }}</strong>
+            </div>
+            <div class="order-date">
+              <span class="label">Date Placed</span>
+              <strong>{{ order.created_at | date:'mediumDate' }}</strong>
+            </div>
+            <div class="order-status">
+              <span class="status-badge" [ngClass]="order.status.toLowerCase()">{{ order.status }}</span>
+            </div>
+          </div>
+          
+          <div class="order-body" *ngIf="order.product">
+            <img [src]="order.product.image || '/assets/placeholder.jpg'" alt="{{ order.product.name }}" class="product-thumb">
+            <div class="product-details">
+              <h4>{{ order.product.name }}</h4>
+              <p class="brand">By {{ order.product.brand }}</p>
+              <p class="qty">Quantity: {{ order.quantity }}</p>
+            </div>
+            <div class="order-total">
+              <span class="label">Total Paid</span>
+              <strong class="total-price">₹{{ order.total_price | number:'1.0-0' }}</strong>
+            </div>
+          </div>
+          
+          <div class="order-footer">
+            <p>Shipped to: <strong>{{ order.customer_email }}</strong></p>
+          </div>
+
+        </div>
+    </div>
+
+    <!-- CART SECTION -->
+    <div class="orders-section cart-section" *ngIf="!loading && !error" style="margin-top: 30px;">
+      <h3>Active Cart Items <span class="badge">{{ cartItems.length }}</span></h3>
+      
+      <div class="empty-state glass-panel" *ngIf="cartItems.length === 0">
+        <div class="empty-icon"><i class="fas fa-shopping-cart"></i></div>
+        <h4>Your cart is empty</h4>
+        <p>You haven't added anything to your cart.</p>
+      </div>
+
+      <div class="orders-grid" *ngIf="cartItems.length > 0">
+        <div class="order-card glass-panel" *ngFor="let item of cartItems">
+          <div class="order-body" style="border-top: none; padding-top: 15px; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 15px; align-items: center;">
+              <img [src]="item.image || '/assets/placeholder.jpg'" alt="{{ item.name }}" class="product-thumb" style="width: 60px; height: 60px; object-fit: contain; background: white; padding: 5px; border-radius: 8px;">
+              <div class="product-details">
+                <h4>{{ item.name }}</h4>
+                <p class="qty" style="margin-top: 5px;">Quantity: {{ item.quantity }}</p>
+              </div>
+            </div>
+            <div class="order-total">
+              <span class="label">Price</span>
+              <strong class="total-price" style="color: #38bdf8; font-size: 1.1rem;">₹{{ item.price | number:'1.0-0' }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

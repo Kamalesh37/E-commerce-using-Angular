@@ -1,0 +1,35 @@
+<div class="category-page">
+  <div class="category-header">
+    <h2 class="gradient-text">Mobiles Collection</h2>
+    <p>Explore the latest smartphones and mobile technology</p>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of products">
+        <div class="product-image">
+            <span class="discount-tag">{{product.discount}}</span>
+            <a [routerLink]="['/product', product.id]">
+              <img [src]="product.image" class="product-thumb" alt="" style="cursor: pointer;">
+            </a>
+            <div class="overlay">
+              <button class="card-btn" (click)="addToCart(product.name, product.price, product.image, product.selectedQty, product.id)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-info">
+            <a [routerLink]="['/product', product.id]" style="text-decoration: none; color: inherit;">
+              <h3 class="product-brand" style="cursor: pointer;">{{product.brand}}</h3>
+            </a>
+            <p class="product-short-des">{{product.shortDes}}</p>
+            <div class="pricing">
+                <span class="price">{{ (product.price * (product.selectedQty || 1)) | currency:'INR':'symbol':'1.0-0' }}</span>
+                <span class="actual-price">{{ (product.actualPrice * (product.selectedQty || 1)) | currency:'INR':'symbol':'1.0-0' }}</span>
+            </div>
+            <div class="qty-control" style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+                <label style="font-size: 0.9rem; color: var(--text-color);">Qty:</label>
+                <input type="number" min="1" value="1" (change)="product.selectedQty = $any($event.target).value" 
+                       style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-element); color: var(--text-color);">
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

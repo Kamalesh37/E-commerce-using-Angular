@@ -1,0 +1,90 @@
+<div class="amz-detail-page" *ngIf="product && !loading">
+  <div class="amz-container">
+    
+    <!-- Left: Image Box -->
+    <div class="amz-image-section">
+      <img [src]="product.image" alt="{{ product.name }}" class="amz-main-image">
+    </div>
+    
+    <!-- Middle: Product Info & Bullets -->
+    <div class="amz-info-section">
+      <h1 class="amz-title">{{ product.name }}</h1>
+      <a routerLink="/" class="amz-brand-link">Visit the {{ product.brand }} Store</a>
+      
+      <div class="amz-ratings">
+        <span class="stars">
+          ★★★★<span class="half-star">★</span>
+        </span>
+        <span class="rating-number">{{ mockRating }}</span>
+        <a href="javascript:void(0)" class="review-link">{{ mockReviewsCount }} ratings</a>
+      </div>
+      
+      <hr class="amz-divider">
+      
+      <div class="amz-price-block">
+        <div class="discount-badge" *ngIf="product.discount">-{{ product.discount }}</div>
+        <div class="price-row">
+          <span class="currency-symbol">₹</span>
+          <span class="amz-price">{{ calculatedPrice | number:'1.0-0' }}</span>
+        </div>
+        <div class="mrp-row">
+          <span class="mrp-label">M.R.P.: </span>
+          <span class="amz-old-price">₹{{ calculatedActualPrice | number:'1.0-0' }}</span>
+        </div>
+        <p class="taxes-label">Inclusive of all taxes</p>
+      </div>
+      
+      <hr class="amz-divider">
+      
+      <div class="amz-about-item">
+        <h3>About this item</h3>
+        <ul class="amz-bullets">
+          <li *ngFor="let bullet of aboutBullets">{{ bullet }}</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Right: Buy Box -->
+    <div class="amz-buy-box">
+      <h2 class="buy-box-price">₹{{ calculatedPrice | number:'1.0-0' }}</h2>
+      <p class="delivery-info">
+        <strong style="color:var(--text-color);">FREE delivery</strong> <br>
+        Usually dispatched in 2-3 days.
+      </p>
+      
+      <h4 class="in-stock-label">In stock</h4>
+      
+      <p class="ships-from">Ships from & Sold by <strong>Premium eCommerce</strong></p>
+      
+      <div class="quantity-selector">
+        <label>Quantity: </label>
+        <select (change)="updateQuantity($event)">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <div class="buy-buttons">
+        <button class="btn amz-btn-cart" (click)="addToCart()">Add to Cart</button>
+        <button class="btn amz-btn-buy" (click)="addToCart()" routerLink="/checkout">Buy Now</button>
+      </div>
+
+      <div class="secure-transaction">
+        🔒 <a href="javascript:void(0)">Secure transaction</a>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="loading-state" *ngIf="loading">
+  <div class="spinner"></div>
+</div>
+
+<div class="error-state" *ngIf="error">
+  <p>{{ error }}</p>
+  <button class="btn amz-btn-cart" routerLink="/">Go Back</button>
+</div>
