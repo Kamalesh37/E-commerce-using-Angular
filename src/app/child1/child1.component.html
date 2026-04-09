@@ -5,115 +5,29 @@
   </div>
 
   <div class="product-grid">
-    <div class="product-card">
+    <div class="product-card" *ngFor="let product of products">
         <div class="product-image">
-            <span class="discount-tag">10% off</span>
-            <img src="/assets/Hp.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('HP Omen', 87800, '/assets/Hp.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">HP</h3>
-            <p class="product-short-des">Omen</p>
-            <div class="pricing">
-                <span class="price">₹87,800</span><span class="actual-price">₹90,000</span>
+            <span class="discount-tag">{{product.discount}}</span>
+            <a [routerLink]="['/product', product.id]">
+              <img [src]="product.image" class="product-thumb" alt="" style="cursor: pointer;">
+            </a>
+            <div class="overlay">
+              <button class="card-btn" (click)="addToCart(product.name, product.price, product.image, product.selectedQty, product.id)">Add to Cart</button>
             </div>
         </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">20% off</span>
-            <img src="/assets/asus.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('ASUS ROG', 88000, '/assets/asus.jpg')">Add to Cart</button></div>
-        </div>
         <div class="product-info">
-            <h3 class="product-brand">ASUS</h3>
-            <p class="product-short-des">ROG</p>
+            <a [routerLink]="['/product', product.id]" style="text-decoration: none; color: inherit;">
+              <h3 class="product-brand" style="cursor: pointer;">{{product.brand}}</h3>
+            </a>
+            <p class="product-short-des">{{product.shortDes}}</p>
             <div class="pricing">
-                <span class="price">₹88,000</span><span class="actual-price">₹100,000</span>
+                <span class="price">{{ (product.price * (product.selectedQty || 1)) | currency:'INR':'symbol':'1.0-0' }}</span>
+                <span class="actual-price">{{ (product.actualPrice * (product.selectedQty || 1)) | currency:'INR':'symbol':'1.0-0' }}</span>
             </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">15% off</span>
-            <img src="/assets/DELL_XPS_15_9510_87YR3.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('DELL XPS 15', 113000, '/assets/DELL_XPS_15_9510_87YR3.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">DELL</h3>
-            <p class="product-short-des">XPS 15</p>
-            <div class="pricing">
-                <span class="price">₹1,13,000</span><span class="actual-price">₹1,39,990</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">30% off</span>
-            <img src="/assets/acer predator helios 300.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('ACER Predator Helios', 117000, '/assets/acer predator helios 300.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">ACER</h3>
-            <p class="product-short-des">Predator Helios</p>
-            <div class="pricing">
-                <span class="price">₹1,17,000</span><span class="actual-price">₹1,29,990</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">16% off</span>
-            <img src="/assets/Msi.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('MSI GF63 Gaming', 23990, '/assets/Msi.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">MSI</h3>
-            <p class="product-short-des">GF63 Gaming</p>
-            <div class="pricing">
-                <span class="price">₹23,990</span><span class="actual-price">₹30,099</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">10% off</span>
-            <img src="/assets/Hp pavillion.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('HP Pavilion 7', 10990, '/assets/Hp pavillion.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">HP</h3>
-            <p class="product-short-des">Pavilion 7</p>
-            <div class="pricing">
-                <span class="price">₹10,990</span><span class="actual-price">₹12,399</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">20% off</span>
-            <img src="/assets/apple.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('APPLE MacBook 7', 22990, '/assets/apple.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">APPLE</h3>
-            <p class="product-short-des">MacBook 7</p>
-            <div class="pricing">
-                <span class="price">₹22,990</span><span class="actual-price">₹28,099</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">10% off</span>
-            <img src="/assets/Lenovo thick book 15.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('LENOVO ThinkBook 15', 8099, '/assets/Lenovo thick book 15.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">LENOVO</h3>
-            <p class="product-short-des">ThinkBook 15</p>
-            <div class="pricing">
-                <span class="price">₹8,099</span><span class="actual-price">₹10,090</span>
+            <div class="qty-control" style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+                <label style="font-size: 0.9rem; color: var(--text-color);">Qty:</label>
+                <input type="number" min="1" value="1" (change)="product.selectedQty = $any($event.target).value" 
+                       style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-element); color: var(--text-color);">
             </div>
         </div>
     </div>

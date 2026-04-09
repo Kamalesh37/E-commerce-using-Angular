@@ -13,13 +13,20 @@ import { SignComponent } from './sign/sign.component';
 import { TelevisionComponent } from './television/television.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+
 const routes: Routes = [
+  {path: "", redirectTo: "login", pathMatch: "full"},
   {path: "Home", component:HomeComponent},
   {path:"About",component:AboutComponent},
   {path:"Careers",component:CourseComponent},
   {path:"Product",component:ContactComponent},
-  {path:"Product",component:ContactComponent},
   {path:"child2",component:Child1Component},
+  {path:"login",component:LoginComponent},
+  {path:"dashboard",component:DashboardComponent},
   {path:"rog",component:SignComponent},
   {path:"child1",component:Child2Component},
   {path:"service",component:ServiceComponent},
@@ -27,6 +34,7 @@ const routes: Routes = [
   {path:"contactus",component:ContactusComponent},
   {path:"Tele",component:TelevisionComponent},
   {path:"checkout",component:CheckoutComponent},
+  {path:"product/:id",component:ProductDetailComponent},
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-child2',
@@ -8,14 +9,20 @@ import { CartService } from '../cart.service';
 })
 export class Child2Component implements OnInit {
 
-  constructor(public cartService: CartService) { }
+  products: any[] = [];
+
+  constructor(public cartService: CartService, private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.getMobiles().subscribe(data => {
+      this.products = data;
+    });
   }
 
-  addToCart(name: string, price: number, image?: string) {
-    this.cartService.addToCart({ name, price, image });
-    alert('Added ' + name + ' to your cart!');
+  addToCart(name: string, price: number, image?: string, qty: any = 1, dbId: any = null) {
+    const quantity = parseInt(qty) || 1;
+    this.cartService.addToCart({ productId: dbId, name, price, image, quantity });
+    alert(`Added ${quantity} ${name}(s) to your cart!`);
   }
 
 }

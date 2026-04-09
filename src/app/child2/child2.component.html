@@ -5,115 +5,29 @@
   </div>
 
   <div class="product-grid">
-    <div class="product-card">
+    <div class="product-card" *ngFor="let product of products">
         <div class="product-image">
-            <span class="discount-tag">10% off</span>
-            <img src="/assets/Apple iphone 13.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('APPLE iPhone 13 Pro', 87800, '/assets/Apple iphone 13.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">APPLE</h3>
-            <p class="product-short-des">iPhone 13 Pro</p>
-            <div class="pricing">
-                <span class="price">₹87,800</span><span class="actual-price">₹90,000</span>
+            <span class="discount-tag">{{product.discount}}</span>
+            <a [routerLink]="['/product', product.id]">
+              <img [src]="product.image" class="product-thumb" alt="" style="cursor: pointer;">
+            </a>
+            <div class="overlay">
+              <button class="card-btn" (click)="addToCart(product.name, product.price, product.image, product.selectedQty, product.id)">Add to Cart</button>
             </div>
         </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">20% off</span>
-            <img src="/assets/Samsung s22 ultra.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('SAMSUNG S22 Ultra', 88000, '/assets/Samsung s22 ultra.jpg')">Add to Cart</button></div>
-        </div>
         <div class="product-info">
-            <h3 class="product-brand">SAMSUNG</h3>
-            <p class="product-short-des">S22 Ultra</p>
+            <a [routerLink]="['/product', product.id]" style="text-decoration: none; color: inherit;">
+              <h3 class="product-brand" style="cursor: pointer;">{{product.brand}}</h3>
+            </a>
+            <p class="product-short-des">{{product.shortDes}}</p>
             <div class="pricing">
-                <span class="price">₹88,000</span><span class="actual-price">₹1,00,000</span>
+                <span class="price">{{ (product.price * (product.selectedQty || 1)) | currency:'INR':'symbol':'1.0-0' }}</span>
+                <span class="actual-price">{{ (product.actualPrice * (product.selectedQty || 1)) | currency:'INR':'symbol':'1.0-0' }}</span>
             </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">15% off</span>
-            <img src="/assets/Vivo y21.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('VIVO Y21', 11300, '/assets/Vivo y21.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">VIVO</h3>
-            <p class="product-short-des">Y21</p>
-            <div class="pricing">
-                <span class="price">₹11,300</span><span class="actual-price">₹13,990</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">30% off</span>
-            <img src="/assets/Oneplus 10 pro.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('ONEPLUS OnePlus 10 Pro', 24000, '/assets/Oneplus 10 pro.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">ONEPLUS</h3>
-            <p class="product-short-des">OnePlus 10 Pro</p>
-            <div class="pricing">
-                <span class="price">₹24,000</span><span class="actual-price">₹30,000</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">17% off</span>
-            <img src="/assets/Mortolo gp.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('MOTOROLA Moto G', 11700, '/assets/Mortolo gp.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">MOTOROLA</h3>
-            <p class="product-short-des">Moto G</p>
-            <div class="pricing">
-                <span class="price">₹11,700</span><span class="actual-price">₹12,990</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">10% off</span>
-            <img src="/assets/Nokia 9.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('NOKIA Nokia 9', 10990, '/assets/Nokia 9.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">NOKIA</h3>
-            <p class="product-short-des">Nokia 9</p>
-            <div class="pricing">
-                <span class="price">₹10,990</span><span class="actual-price">₹12,399</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">20% off</span>
-            <img src="/assets/oppo f15.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('OPPO Oppo F15', 22990, '/assets/oppo f15.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">OPPO</h3>
-            <p class="product-short-des">Oppo F15</p>
-            <div class="pricing">
-                <span class="price">₹22,990</span><span class="actual-price">₹28,099</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-card">
-        <div class="product-image">
-            <span class="discount-tag">10% off</span>
-            <img src="/assets/Samsung A22.jpg" class="product-thumb" alt="">
-            <div class="overlay"><button class="card-btn" (click)="addToCart('SAMSUNG Samsung A22', 8099, '/assets/Samsung A22.jpg')">Add to Cart</button></div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-brand">SAMSUNG</h3>
-            <p class="product-short-des">Samsung A22</p>
-            <div class="pricing">
-                <span class="price">₹8,099</span><span class="actual-price">₹10,090</span>
+            <div class="qty-control" style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+                <label style="font-size: 0.9rem; color: var(--text-color);">Qty:</label>
+                <input type="number" min="1" value="1" (change)="product.selectedQty = $any($event.target).value" 
+                       style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-element); color: var(--text-color);">
             </div>
         </div>
     </div>

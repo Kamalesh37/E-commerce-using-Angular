@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../theme.service';
 import { CartService } from '../cart.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,11 @@ export class HeaderComponent implements OnInit {
   cartCount: number = 0;
   isMobileMenuOpen: boolean = false;
 
-  constructor(public themeService: ThemeService, public cartService: CartService) { }
+  constructor(public themeService: ThemeService, public cartService: CartService, private apiService: ApiService) { }
+
+  get isLoggedIn(): boolean {
+    return this.apiService.isLoggedIn();
+  }
 
   ngOnInit(): void {
     this.themeService.isDarkTheme$.subscribe(isDark => {
